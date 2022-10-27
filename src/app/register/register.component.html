@@ -1,0 +1,11 @@
+<div class="container mt-5">
+    <div class="card text-center">
+        <form #registerForm="ngForm" (ngSubmit)="register(registerForm)">
+            <input type="text" class="form-control mb-3" name="firstName" id="firstName" ngModel placeholder="First Name">
+            <input type="text" class="form-control mb-3" name="lastName" id="lastName" ngModel placeholder="Last Name">
+            <input type="email" class="form-control mb-3" name="email" id="email" ngModel placeholder="Email">
+            <input type="password" class="form-control mb-3" name="password" id="password" ngModel placeholder="**********">
+            <input type="submit" value="Register" class="btn btn-outline-primary form-control rounded-1">
+        </form>
+    </div>
+</div>

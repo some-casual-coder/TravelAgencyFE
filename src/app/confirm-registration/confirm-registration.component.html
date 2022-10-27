@@ -1,0 +1,8 @@
+<div *ngIf="verified; else elseBlock">
+    <p>Verification Successful</p>
+    <a routerLink="/login">Login</a>
+</div>
+<ng-template #elseBlock>
+    <p>Verification Failed</p>
+    <button>Resend Verification Link</button>
+</ng-template>
