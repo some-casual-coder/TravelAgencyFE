@@ -1,0 +1,20 @@
+<ng-container *ngIf="display">
+    <div>
+        <p>{{user.firstName}}</p>
+        <p>{{user.lastName}}</p>
+        <p>{{user.email}}</p>
+        <p>{{user.verified}}</p>
+        <ul>
+            <li *ngFor="let role of user.roles">{{role.name}}</li>
+        </ul>
+        <form #roleForm="ngForm" (ngSubmit)="addRoleToUser(roleForm)">
+            <input type="hidden" value={{user.email}} name="email" id="email" ngModel>
+            <label>Add Role:</label>
+            <select name="role" id="addRole" ngModel>
+                <option value="ROLE_HOST">Host</option>
+                <option value="ROLE_ADMIN">Admin</option>
+            </select>
+            <input type="submit" value="Add Role To User" class="btn btn-outline-primary form-control rounded-1">
+        </form>
+    </div>
+</ng-container>

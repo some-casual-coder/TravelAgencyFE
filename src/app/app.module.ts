@@ -19,6 +19,7 @@ import { SuperAdminComponent } from './super-admin/super-admin.component';
 import { AuthGuard } from './auth/auth.guard';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { UserService } from 'services/user.service';
+import { ViewUserComponent } from './view-user/view-user.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { UserService } from 'services/user.service';
     RegisterComponent,
     ConfirmRegistrationComponent,
     HostComponent,
-    SuperAdminComponent
+    SuperAdminComponent,
+    ViewUserComponent
   ],
   imports: [
     BrowserModule,

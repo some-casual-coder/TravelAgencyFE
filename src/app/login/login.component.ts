@@ -35,12 +35,15 @@ export class LoginComponent implements OnInit, OnDestroy {
           this.userAuthService.setRoles(roles);
           if (roles.includes('ROLE_SUPER_ADMIN')) {
             this.router.navigate(['/superadmin']);
+            return;
           }
           else if (roles.includes('ROLE_ADMIN')) {
             this.router.navigate(['/admin']);
+            return;
           }
           else if (roles.includes('ROLE_HOST')) {
             this.router.navigate(['/host']);
+            return;
           }
           else {
             this.router.navigate(['/user']);
