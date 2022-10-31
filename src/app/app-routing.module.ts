@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AddHotelComponent } from './add-hotel/add-hotel.component';
 import { AdminComponent } from './admin/admin.component';
 import { AuthGuard } from './auth/auth.guard';
 import { ConfirmRegistrationComponent } from './confirm-registration/confirm-registration.component';
@@ -18,6 +19,7 @@ const routes: Routes = [
   {path:'host', component:HostComponent, canActivate:[AuthGuard], data:{roles:['ROLE_HOST']}},
   {path:'user', component:UserComponent, canActivate:[AuthGuard], data:{roles:['ROLE_USER']}},
   {path:'login', component:LoginComponent},
+  {path:'hotel/add', component:AddHotelComponent, canActivate:[AuthGuard], data:{roles:['ROLE_HOST', 'ROLE_ADMIN', 'ROLE_SUPER_ADMIN']}},
   {path:'register', component:RegisterComponent},
   {path:'user/verifyUser', component:ConfirmRegistrationComponent},
   {path:'forbidden', component:ForbiddenComponent}

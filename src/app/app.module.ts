@@ -10,7 +10,7 @@ import { HeaderComponent } from './header/header.component';
 import { UserComponent } from './user/user.component';
 import { LoginComponent } from './login/login.component';
 import { ForbiddenComponent } from './forbidden/forbidden.component';
-import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
+import {HttpClientJsonpModule, HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { RegisterComponent } from './register/register.component';
 import { ConfirmRegistrationComponent } from './confirm-registration/confirm-registration.component';
 import { RouterModule } from '@angular/router';
@@ -20,6 +20,8 @@ import { AuthGuard } from './auth/auth.guard';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { UserService } from 'services/user.service';
 import { ViewUserComponent } from './view-user/view-user.component';
+import { AddHotelComponent } from './add-hotel/add-hotel.component';
+import { GoogleMapsModule } from '@angular/google-maps';
 
 @NgModule({
   declarations: [
@@ -34,14 +36,20 @@ import { ViewUserComponent } from './view-user/view-user.component';
     ConfirmRegistrationComponent,
     HostComponent,
     SuperAdminComponent,
-    ViewUserComponent
+    ViewUserComponent,
+    AddHotelComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    HttpClientJsonpModule,
+    GoogleMapsModule,
     RouterModule
+  ],
+  exports: [
+    AddHotelComponent,
   ],
   providers: [
     AuthGuard,

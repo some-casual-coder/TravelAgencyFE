@@ -1,0 +1,27 @@
+<div class="container mt-5">
+    <div *ngIf="apiLoaded">
+        <google-map height="600px" width="600px" [center]="center" [zoom]="zoom" [options]="options"
+            (mapClick)="addMarker($event)">
+            <map-marker *ngFor="let marker of markers" [position]="marker" [options]="markerOptions"></map-marker>
+        </google-map>
+    </div>
+    <div>
+        <p>{{latitude}}</p>
+        <p>{{longitude}}</p>
+    </div>
+
+    <div class="card text-center">
+        <form #hotelForm="ngForm" (ngSubmit)="upload(hotelForm)">
+            <input type="text" class="form-control mb-3" name="name" id="name" ngModel placeholder="Hotel name">
+            <input type="text" class="form-control mb-3" name="town" id="town" ngModel placeholder="Town name">
+            <label>Image of Hotel</label>
+            <label class="btn btn-default">
+                <input type="file" (change)="selectFile($event)">
+            </label>
+            <br>
+            <button type="submit" class="btn btn-success" [disabled]="!selectedFiles">Add Hotel</button>
+        </form>
+    </div>
+    <br>
+
+</div>
