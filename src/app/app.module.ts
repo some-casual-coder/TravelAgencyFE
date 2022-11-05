@@ -22,6 +22,8 @@ import { UserService } from 'services/user.service';
 import { ViewUserComponent } from './view-user/view-user.component';
 import { AddHotelComponent } from './add-hotel/add-hotel.component';
 import { GoogleMapsModule } from '@angular/google-maps';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import { GoogleMapsModule } from '@angular/google-maps';
     HostComponent,
     SuperAdminComponent,
     ViewUserComponent,
-    AddHotelComponent
+    AddHotelComponent,
+    SidebarComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,23 @@
+<nav>
+    <ul>
+        <li><a routerLink="/admin">Dashboard</a></li>
+        <li><a routerLink="/users">Users</a></li>
+        <li><a routerLink="/hotels">Hotels</a></li>
+        <li><a routerLink="/transport">Transport</a></li>
+        <li><a routerLink="/transportTypes">Transport Types</a></li>
+    </ul>
+    <button *ngIf="! isLoggedIn()" type="button" class="btn btn-success" routerLink="/login">Login</button>
+    <button *ngIf="! isLoggedIn()" type="button" class="btn btn-primary" routerLink="/register">Register</button>
+    <button *ngIf="isLoggedIn()" type="button" class="btn btn-primary" (click)="logout()">Logout</button>
+    <!-- <button *ngIf="! isLoggedIn()" type="button" class="btn btn-success" routerLink="/login">Login</button>
+    <button *ngIf="! isLoggedIn()" type="button" class="btn btn-primary" routerLink="/register">Register</button>
+    <button *ngIf="isLoggedIn()" type="button" class="btn btn-primary" (click)="logout()">Logout</button> -->
+</nav>
+<!-- <li>
+    <a *ngIf="userService.roleMatch(['ROLE_ADMIN, ROLE_SUPER_ADMIN'])" class="nav-link active"
+        aria-current="page" routerLink="/admin">Admin Dashboard</a>
+</li>
+<li class="nav-item">
+    <a *ngIf="userService.roleMatch(['ROLE_USER'])" class="nav-link active" aria-current="page"
+        routerLink="/user">User Dashboard</a>
+</li> -->

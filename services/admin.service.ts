@@ -58,7 +58,7 @@ export class AdminService {
       }
     );
     const params = {
-      Bucket: 'travelagency-hotelimages',
+      Bucket: 'travelagency-images',
       Key: file.name,
       Body: file,
       ACL: 'public-read',

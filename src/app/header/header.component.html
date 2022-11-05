@@ -11,10 +11,13 @@
                     <a class="nav-link active" aria-current="page" routerLink="/home">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a *ngIf="userService.roleMatch(['ROLE_ADMIN, ROLE_SUPER_ADMIN'])" class="nav-link active" aria-current="page" routerLink="/admin">Admin Dashboard</a>
+                    <a href="#">Link</a>
                 </li>
                 <li class="nav-item">
-                    <a *ngIf="userService.roleMatch(['ROLE_USER'])" class="nav-link active" aria-current="page" routerLink="/user">User Dashboard</a>
+                    <a href="#">Other Link</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#">Become a Host</a>
                 </li>
             </ul>
             <button *ngIf="! isLoggedIn()" type="button" class="btn btn-success" routerLink="/login">Login</button>

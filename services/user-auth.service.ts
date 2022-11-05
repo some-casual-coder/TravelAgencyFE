@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { User } from 'classes/user';
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +22,14 @@ export class UserAuthService {
 
   public getToken(): string{
     return localStorage.getItem("jwtToken")!;
+  }
+
+  public setUser(user: User){
+    localStorage.setItem("user", JSON.stringify(user));
+  }
+
+  public getUser(): User{
+    return JSON.parse(localStorage.getItem("user")!);
   }
 
   public clear(){

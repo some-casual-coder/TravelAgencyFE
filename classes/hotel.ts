@@ -1,3 +1,5 @@
+import { User } from "./user";
+
 export class Hotel {
     name!: string;
     town!: string;
@@ -5,4 +7,5 @@ export class Hotel {
     longitude!: number;
     rating!: number;
     imageUrl!: string;
+    user!: User;
 }

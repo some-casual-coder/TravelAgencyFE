@@ -3,6 +3,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Hotel } from 'classes/hotel';
 import { NotifyWhenReady } from 'classes/notify-when-ready';
+import { User } from 'classes/user';
 import { map, catchError, of, Observable, Subject, takeUntil, tap } from 'rxjs';
 import { AdminService } from 'services/admin.service';
 import { environment } from 'src/environments/environment';
@@ -42,7 +43,7 @@ export class AddHotelComponent implements OnInit, OnDestroy {
         this.zoom = 12;
       });
     }
-    console.log(process.env);
+    // console.log(process.env);
   }
 
   ngOnDestroy(): void {
@@ -69,14 +70,17 @@ export class AddHotelComponent implements OnInit, OnDestroy {
 
   upload(hotelForm: NgForm) {
     const file = this.selectedFiles.item(0);
+    const owner = new User();
     this.adminService.uploadFile(file).then(
       (data) => {
+        owner.id = 25;
         this.fileLink = data;
         this.hotel.latitude = this.latitude;
         this.hotel.longitude = this.longitude;
         this.hotel.name = hotelForm.value.name;
         this.hotel.town = hotelForm.value.town;
         this.hotel.imageUrl = this.fileLink;
+        this.hotel.user = owner;
         console.log(this.hotel);
         this.addHotel(this.hotel);
       },
