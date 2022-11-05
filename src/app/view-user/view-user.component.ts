@@ -3,6 +3,8 @@ import { NgForm } from '@angular/forms';
 import { User } from 'classes/user';
 import { Observable, Subject, takeUntil } from 'rxjs';
 import { AdminService } from 'services/admin.service';
+import { UserInteractionService } from 'services/user-interaction.service';
+import { UserService } from 'services/user.service';
 
 @Component({
   selector: 'app-view-user',
@@ -18,7 +20,7 @@ export class ViewUserComponent implements OnInit, OnDestroy, OnChanges {
 
   private destroy:Subject<void> = new Subject<void>;
 
-  constructor(private adminService: AdminService) { }
+  constructor(private userInteractionService: UserInteractionService, private adminService:AdminService) { }
 
   ngOnInit(): void {
   }
@@ -39,22 +41,21 @@ export class ViewUserComponent implements OnInit, OnDestroy, OnChanges {
   }
 
   getUserDetails(){
-    this.adminService.findUserByEmail(this.email).pipe(takeUntil(this.destroy))
+    this.userInteractionService.findUserByEmail(this.email).pipe(takeUntil(this.destroy))
     .subscribe({
-      next: response => {
+      next: (response: User) => {
         this.user = response;
       },
-      error: error => console.error(error)
+      error: (error: any) => console.error(error)
     });
   }
 
   addRoleToUser(roleForm:NgForm){
     roleForm.controls['email'].setValue(this.email);
-    // console.log(roleForm.value.role);
     this.adminService.addRoleToUser(roleForm).pipe(takeUntil(this.destroy))
     .subscribe({
-      next:response =>  alert("Successfull"),
-      error: error => console.error(error)
+      next:(response: any) =>  alert("Successfull"),
+      error: (error: any) => console.error(error)
     });
   }
 

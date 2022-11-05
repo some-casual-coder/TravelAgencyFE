@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { User } from 'classes/user';
 import { Subject, takeUntil } from 'rxjs';
 import { AdminService } from 'services/admin.service';
+import { UserInteractionService } from 'services/user-interaction.service';
 import { UserService } from 'services/user.service';
 
 @Component({
@@ -18,7 +19,7 @@ export class SuperAdminComponent implements OnInit, OnDestroy {
   private destroy: Subject<void> = new Subject<void>;
 
   constructor(private userService: UserService,
-    private adminService: AdminService
+    private userInteractionService: UserInteractionService
   ) { }
 
   ngOnInit(): void {
@@ -39,7 +40,7 @@ export class SuperAdminComponent implements OnInit, OnDestroy {
   }
 
   getAllUsers() {
-    this.adminService.findAllUsers().pipe(takeUntil(this.destroy))
+    this.userInteractionService.findAllUsers().pipe(takeUntil(this.destroy))
       .subscribe({
         next: (response: any) => {
           this.users = response.content;

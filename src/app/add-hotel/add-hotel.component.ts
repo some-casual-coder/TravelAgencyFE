@@ -2,10 +2,10 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Hotel } from 'classes/hotel';
-import { NotifyWhenReady } from 'classes/notify-when-ready';
 import { User } from 'classes/user';
 import { map, catchError, of, Observable, Subject, takeUntil, tap } from 'rxjs';
 import { AdminService } from 'services/admin.service';
+import { HotelService } from 'services/hotel.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -35,6 +35,13 @@ export class AddHotelComponent implements OnInit, OnDestroy {
   markerOptions: google.maps.MarkerOptions = { draggable: false };
   markers: google.maps.LatLngLiteral[] = [];
 
+  constructor(httpClient: HttpClient, private hotelService: HotelService) {
+    this.apiLoaded = httpClient.jsonp(`${environment.MAPS_API}`, 'callback')
+      .pipe(
+        map(() => true),
+        catchError(() => of(false)),
+      );
+  }
 
   ngOnInit(): void {
     if ('geolocation' in navigator) {
@@ -60,19 +67,11 @@ export class AddHotelComponent implements OnInit, OnDestroy {
     // this.latitude = event.latLng?.toJSON().lat;
   }
 
-  constructor(httpClient: HttpClient, private adminService: AdminService) {
-    this.apiLoaded = httpClient.jsonp(`${environment.MAPS_API}`, 'callback')
-      .pipe(
-        map(() => true),
-        catchError(() => of(false)),
-      );
-  }
-
   upload(hotelForm: NgForm) {
     const file = this.selectedFiles.item(0);
     const owner = new User();
-    this.adminService.uploadFile(file).then(
-      (data) => {
+    this.hotelService.uploadFile(file).then(
+      (data: any) => {
         owner.id = 25;
         this.fileLink = data;
         this.hotel.latitude = this.latitude;
@@ -89,7 +88,7 @@ export class AddHotelComponent implements OnInit, OnDestroy {
   }
 
   addHotel(hotelData: Hotel) {
-    this.adminService.addHotel(hotelData).pipe(takeUntil(this.destroy))
+    this.hotelService.addHotel(hotelData).pipe(takeUntil(this.destroy))
       .subscribe({
         next: (response) => console.log(response),
         error: (error) => console.log(error),
