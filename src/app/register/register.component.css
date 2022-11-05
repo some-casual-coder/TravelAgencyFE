@@ -1,0 +1,162 @@
+*{
+    margin: 0;
+    padding: 0%;
+    box-sizing:border-box;
+}
+
+.righthalf{
+    margin: auto;
+    border-radius: 10px;
+    padding: 5px ;
+    position: absolute;
+    right: 0px;
+    height: 100%;
+
+    width: 50%;
+    position: absolute;  
+    
+
+}
+
+.vl {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    border: 2px solid #ddd;
+    height: 100%;
+}
+
+.lefthalf{
+    width: 50%;
+    position: absolute;
+    left: 0px;
+    height: 100%;
+}
+
+.icons{
+    padding: 25px 50px;
+    font-size: medium;
+    display: flex;
+    justify-content: center;
+    justify-content: space-between;
+    color: #9d8d5b;
+    size: 50%;
+}
+
+.icons i{
+    font-size: 2.5em;
+}
+
+.registration-box{
+   
+    width: auto;
+    height: auto;
+    position: relative;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+   
+}
+
+input,
+.btn {
+  width: auto;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  margin: 5px 0;
+  opacity: 0.85;
+  display: inline-block;
+  font-size: 17px;
+  line-height: 20px;
+  text-decoration: none; /* remove underline from anchors */
+}
+
+input:hover,
+.btn:hover {
+  opacity: 1;
+}
+
+h2{
+    font: Serif;
+    font-weight: bold;
+    text-align: center;
+    color: #9d8d5b;
+    font-size: 48px;
+}
+
+p{
+    color:#9d8d5b ;
+    text-align: center;
+    font-size: 20px;
+    font-style: italic;
+} 
+
+.flex-box1{
+    display: flex;
+    justify-content: center;
+    justify-content: space-between;
+    padding: 25px 50px;
+}
+
+.flex-box2{
+    display: flex;
+    justify-content: center;
+}
+
+.flex-box3{
+    display: flex;
+    justify-content: center;
+}
+
+.flex-box4{
+    display: flex;
+    justify-content: center;
+    justify-content: space-between;
+    padding: 25px 50px;
+}
+
+.flex-box5{
+    width: 750px;
+    padding: 25px 50px;
+    display: flex;
+    justify-content: center;
+    justify-content: space-between;
+    border-radius: 0px 0px 4px 4px;
+
+    
+}
+
+p .container input[type=checkbox]{
+    padding: 25px 50px;
+    color:#9d8d5b ;
+    font: Serif;
+    font-weight: bold;
+    font-style: italic;
+    font-display: underline;
+}
+
+input[type=text] {
+    padding: 0;
+    height: 30px;
+    position: relative;
+    left: 0;
+    outline: none;
+    border: 1px solid #cdcdcd;
+    border-color: rgba(0, 0, 0, .15);
+    background-color:#cdcdcd ;
+    text-align: center;
+    color: #9d8d5b;
+    font-size: 16px;
+}
+
+input[type=submit] {
+    background-color: #9d8d5b ;
+    color: white;
+    cursor: pointer;
+}
+  
+input[type=submit]:hover {
+    background-color: #9d8d5b;
+}
+
+  

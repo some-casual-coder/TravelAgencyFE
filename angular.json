@@ -29,6 +29,7 @@
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
               "node_modules/bootstrap/dist/js/bootstrap.min.js"
+              
             ]
           },
           "configurations": {
@@ -96,10 +97,15 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+             
+            ]
           }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }
