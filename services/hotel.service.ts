@@ -12,7 +12,7 @@ import { environment } from 'src/environments/environment';
 })
 export class HotelService {
 
-  API_PATH = "http://localhost:8080";
+  API_PATH = `${environment.API_PATH}`;
 
   constructor(private httpClient: HttpClient) { }
 
