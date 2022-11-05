@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-declare var swiper: any;
+
 
 @Component({
   selector: 'app-home',
@@ -12,12 +12,24 @@ export class HomeComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    new swiper();
+    //this.loadScript('../assets/js/script.js');
+    this.loadScript('https://unpkg.com/swiper/swiper-bundle.min.js');
   }
+  
+  title = 'app';
+  loadScript(url: string) {
+    const body = <HTMLDivElement> document.body;
+    const script = document.createElement('script');
+    script.innerHTML = '';
+    script.src = url;
+    script.async = false;
+    script.defer = true;
+    body.appendChild(script);
 
-  title = 'home-js';
+  
+
 
 }
 
 
-
+}
