@@ -104,11 +104,11 @@ export class HotelService {
     return this.httpClient.get(this.API_PATH + "/hotel/all");
   }
 
-  public findAllHotelsNearby(lat:number, lng:number): Observable<Hotel> {
+  public findAllHotelsNearby(lat:number, lng:number): Observable<Hotel[]> {
     const params = new HttpParams()
     .set("lat", lat)
     .set("lng", lng);
-    return this.httpClient.get<Hotel>(this.API_PATH + "/hotel/all/nearby", {params});
+    return this.httpClient.get<Hotel[]>(this.API_PATH + "/hotel/all/nearby", {params});
   }
 
   public findAllHotelsIn(town:string): Observable<Hotel> {
