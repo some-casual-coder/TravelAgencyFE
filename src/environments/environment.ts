@@ -5,9 +5,6 @@
 export const environment = {
   production: false,
   API_PATH: "http://localhost:8080",
-  MAPS_API: "https://maps.googleapis.com/maps/api/js?key=AIzaSyBhO9oVBKqZaev507tphDBKreuxvZYfduo",
-  S3_ACCESS_KEY: "AKIAUA6N7Q7I2C4U4Z5W",
-  S3_SECRET_ACCESS_KEY: "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"
 };
 
 /*
