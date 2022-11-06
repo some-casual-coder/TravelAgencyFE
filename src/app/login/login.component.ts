@@ -33,6 +33,7 @@ export class LoginComponent implements OnInit, OnDestroy {
           responseRoles.forEach((role: { name: string; }) => roles.push(role.name));
           console.log(roles);
           this.userAuthService.setRoles(roles);
+          this.userAuthService.setUser(response);
           if (roles.includes('ROLE_ADMIN') || roles.includes('ROLE_SUPER_ADMIN')) {
             this.router.navigate(['/admin']);
             return;

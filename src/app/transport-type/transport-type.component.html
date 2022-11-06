@@ -1,0 +1,12 @@
+<app-sidebar></app-sidebar>
+<form #typeForm="ngForm" (ngSubmit)="addTransportType(typeForm)">
+    <input type="text" placeholder="Name of transport Type" ngModel name="type" id="type">
+    <input type="submit" value="Add Transport Type">
+</form>
+<div *ngIf="transportTypes != []; else no_types">
+    <div *ngFor="let type of transportTypes">
+        <p>{{type.id}}</p>
+        <p>{{type.type}}</p>
+    </div>
+</div>
+<ng-template #no_types>No Types Added</ng-template>

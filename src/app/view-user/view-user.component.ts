@@ -1,5 +1,6 @@
-import { Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { User } from 'classes/user';
 import { Observable, Subject, takeUntil } from 'rxjs';
 import { AdminService } from 'services/admin.service';
@@ -20,7 +21,10 @@ export class ViewUserComponent implements OnInit, OnDestroy, OnChanges {
 
   private destroy:Subject<void> = new Subject<void>;
 
-  constructor(private userInteractionService: UserInteractionService, private adminService:AdminService) { }
+  constructor(private userInteractionService: UserInteractionService,
+    private adminService:AdminService,
+    private router: Router
+    ) { }
 
   ngOnInit(): void {
   }
@@ -54,7 +58,11 @@ export class ViewUserComponent implements OnInit, OnDestroy, OnChanges {
     roleForm.controls['email'].setValue(this.email);
     this.adminService.addRoleToUser(roleForm).pipe(takeUntil(this.destroy))
     .subscribe({
-      next:(response: any) =>  alert("Successfull"),
+      next:(response: any) =>  {
+        this.router.navigateByUrl('/RefreshComponent', { skipLocationChange: true }).then(() => {
+          this.router.navigate(['/admin/users']);
+      }); 
+      },
       error: (error: any) => console.error(error)
     });
   }

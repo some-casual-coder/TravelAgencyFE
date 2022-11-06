@@ -1,0 +1,25 @@
+<app-sidebar></app-sidebar>
+<div>
+    <app-view-hotel [hotelId]="hotelId"></app-view-hotel>
+</div>
+<table>
+    <thead>
+        <tr>
+            <th>Hotel Name</th>
+            <th>Town</th>
+            <th>Rating</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let hotel of hotels">
+            <td>{{hotel.name}}</td>
+            <td>{{hotel.town}}</td>
+            <td>{{hotel.rating}}</td>
+            <td><button (click)="setHotelId(hotel.id!)">View Hotel</button></td>
+        </tr>
+    </tbody>
+</table>
+<div>
+    <app-add-hotel></app-add-hotel>
+</div>

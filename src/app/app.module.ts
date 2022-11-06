@@ -25,6 +25,11 @@ import { GoogleMapsModule } from '@angular/google-maps';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ViewUsersComponent } from './view-users/view-users.component';
+import { HotelsComponent } from './hotels/hotels.component';
+import { ViewHotelComponent } from './view-hotel/view-hotel.component';
+import { ViewHotelRoomsComponent } from './view-hotel-rooms/view-hotel-rooms.component';
+import { TransportTypeComponent } from './transport-type/transport-type.component';
+import { MeansOfTransportComponent } from './means-of-transport/means-of-transport.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +48,12 @@ import { ViewUsersComponent } from './view-users/view-users.component';
     AddHotelComponent,
     SidebarComponent,
     NotFoundComponent,
-    ViewUsersComponent
+    ViewUsersComponent,
+    HotelsComponent,
+    ViewHotelComponent,
+    ViewHotelRoomsComponent,
+    TransportTypeComponent,
+    MeansOfTransportComponent
   ],
   imports: [
     BrowserModule,

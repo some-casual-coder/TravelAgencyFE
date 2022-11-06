@@ -25,6 +25,8 @@ export class AddHotelComponent implements OnInit, OnDestroy {
   hotel: Hotel = new Hotel();
   selectedFiles!: FileList;
 
+  mapNeeded: boolean = false;
+  selectedMarkers: boolean = false;
   apiLoaded: Observable<boolean>;
   center: google.maps.LatLngLiteral = { lat: 0.0236, lng: 37.9062 };
   zoom = 6.5;
@@ -58,13 +60,20 @@ export class AddHotelComponent implements OnInit, OnDestroy {
     this.destroy.complete();
   }
 
+  openMap(){
+    this.mapNeeded = true;
+  }
+
+  closeMap(){
+    this.mapNeeded = false;
+  }
+
   addMarker(event: google.maps.MapMouseEvent) {
     this.markers = [];
     this.markers.push(event.latLng!.toJSON());
     this.latitude = Math.round(event.latLng!.toJSON().lat * 10000000) / 10000000;
     this.longitude = Math.round(event.latLng!.toJSON().lng * 10000000) / 10000000;
-    // this.longitude = event.latLng?.toJSON().lng;
-    // this.latitude = event.latLng?.toJSON().lat;
+    this.selectedMarkers =true;
   }
 
   upload(hotelForm: NgForm) {

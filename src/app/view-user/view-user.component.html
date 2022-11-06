@@ -9,12 +9,12 @@
         </ul>
         <form #roleForm="ngForm" (ngSubmit)="addRoleToUser(roleForm)">
             <input type="hidden" value={{user.email}} name="email" id="email" ngModel>
-            <label>Add Role:</label>
+            <label>Give Role:</label>
             <select name="role" id="addRole" ngModel>
                 <option value="ROLE_HOST">Host</option>
                 <option value="ROLE_ADMIN">Admin</option>
             </select>
-            <input type="submit" value="Add Role To User" class="btn btn-outline-primary form-control rounded-1">
+            <input type="submit" value="Add Role To User">
         </form>
     </div>
 </ng-container>

@@ -21,8 +21,8 @@ export class HotelService {
     const contentType = file.type;
     const bucket = new S3(
       {
-        // accessKeyId: `${environment.S3_ACCESS_KEY}`,
-        // secretAccessKey: `${environment.S3_SECRET_ACCESS_KEY}`,
+        accessKeyId: `${environment.S3_ACCESS_KEY}`,
+        secretAccessKey: `${environment.S3_SECRET_ACCESS_KEY}`,
         region: ''
       }
     );

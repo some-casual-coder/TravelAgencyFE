@@ -1,10 +1,10 @@
 <nav>
     <ul>
         <li><a routerLink="/admin">Dashboard</a></li>
-        <li><a routerLink="admin/users">Users</a></li>
-        <li><a routerLink="/hotels">Hotels</a></li>
-        <li><a routerLink="/transport">Transport</a></li>
-        <li><a routerLink="/transportTypes">Transport Types</a></li>
+        <li><a routerLink="/admin/users">Users</a></li>
+        <li><a routerLink="/admin/hotels">Hotels</a></li>
+        <li><a routerLink="/admin/transport">Transport</a></li>
+        <li><a routerLink="/admin/transportTypes">Transport Types</a></li>
     </ul>
     <button *ngIf="! isLoggedIn()" type="button" class="btn btn-success" routerLink="/login">Login</button>
     <button *ngIf="! isLoggedIn()" type="button" class="btn btn-primary" routerLink="/register">Register</button>

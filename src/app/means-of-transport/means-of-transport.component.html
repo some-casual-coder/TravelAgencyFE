@@ -1,0 +1,88 @@
+<app-sidebar></app-sidebar>
+<div *ngIf="showDetails">
+    <button (click)="hideDetails()">Hide</button>
+    <div *ngIf="transportImages != [];else no_images">
+        <div *ngFor="let image of transportImages">
+            <img src="{{image.imageUrl}}" alt="Room Image">
+        </div>
+    </div>
+
+    <ng-template #no_images>No Images</ng-template>
+    <form #imageForm="ngForm" (ngSubmit)="upload(imageForm)">
+        <h3>Add Image</h3>
+        <label>
+            <input type="file" (change)="selectFile($event)">
+        </label>
+        <br>
+        <button type="submit" [disabled]="!selectedFiles">Add Image</button>
+    </form>
+
+    <p>{{selectedTransport.model}}</p>
+    <p>{{selectedTransport.capacity}}</p>
+    <p>{{selectedTransport.price}}</p>
+    <p>{{selectedTransport.chargedPer}}</p>
+    <p>{{selectedTransport.transportType.type}}</p>
+    <div *ngIf="addons != []; else no_extras">
+        <div *ngFor="let addon of addons">
+            <h3>{{addon.title}}</h3>
+            <p>{{addon.description}}</p>
+        </div>
+    </div>
+    <ng-template #no_extras>No Extras</ng-template>
+    <form #addonForm="ngForm" (ngSubmit)="saveAddon(addonForm)">
+        <h2>Add Addon</h2>
+        <input type="text" name="title" id="title" placeholder="Title" ngModel>
+        <input type="text" name="description" id="description" placeholder="Brief Description" ngModel>
+        <input type="submit" value="Add Addon">
+    </form>
+</div>
+<table *ngIf="transports != []; else no_transport">
+    <thead>
+        <tr>
+            <th>Model</th>
+            <th>Capacity</th>
+            <th>Price</th>
+            <th>Charged-Per</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let transport of transports">
+            <td>{{transport.model}}</td>
+            <td>{{transport.capacity}}</td>
+            <td>{{transport.price}}</td>
+            <td>{{transport.chargedPer}}</td>
+            <td><button (click)="setTransportId(transport.id!)">View Details</button></td>
+        </tr>
+    </tbody>
+</table>
+<ng-template #no_transport>No means of transport Added</ng-template>
+<form #transportForm="ngForm" (ngSubmit)="addTransportMeans(transportForm)">
+    <div *ngIf="apiLoaded && mapNeeded">
+        <google-map height="600px" width="600px" [center]="center" [zoom]="zoom" [options]="options"
+            (mapClick)="addMarker($event)">
+            <map-marker *ngFor="let marker of markers" [position]="marker" [options]="markerOptions"></map-marker>
+        </google-map>
+        <button (click)="closeMap()">Close Map</button>
+    </div>
+    <div>
+        <button *ngIf="!mapNeeded" (click)="openMap()">Open Map</button>
+        <p>Latitude: {{latitude}}</p>
+        <p>Longitude: {{longitude}}</p>
+    </div>
+    <label for="type">Transport Type</label>
+    <select name="type" id="type" ngModel>
+        <option *ngFor="let type of transportTypes" value="{{type.id}}">{{type.type}}</option>
+    </select>
+    <input type="text" placeholder="Model" name="model" ngModel>
+    <input type="number" placeholder="Capacity" name="capacity" ngModel>
+    <input type="number" placeholder="Price" name="price" ngModel>
+    <label for="per">Charged-Per</label>
+    <select name="chargedPer" id="per" ngModel>
+        <option value="day">Day</option>
+        <option value="week">Week</option>
+        <option value="month">Month</option>
+        <option value="distance">Kilometre</option>
+    </select>
+    <button type="submit" [disabled]="!selectedMarkers">Add Transport</button>
+</form>

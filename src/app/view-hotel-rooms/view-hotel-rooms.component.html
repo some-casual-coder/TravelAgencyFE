@@ -1,0 +1,44 @@
+<app-sidebar></app-sidebar>
+<div *ngIf="showDetails">
+    <button (click)="hideDetails()">Hide</button>
+    <div *ngIf="roomImages != [];else no_images">
+        <div *ngFor="let image of roomImages">
+            <img src="{{image.imageUrl}}" alt="Room Image">
+        </div>
+    </div>
+
+    <ng-template #no_images>No Images</ng-template>
+    <form #imageForm="ngForm" (ngSubmit)="upload(imageForm)">
+        <h3>Add Image</h3>
+        <label>
+            <input type="file" (change)="selectFile($event)">
+        </label>
+        <br>
+        <button type="submit" [disabled]="!selectedFiles">Add Image</button>
+    </form>
+
+    <p>{{selectedRoom.name}}</p>
+    <p>{{selectedRoom.capacity}}</p>
+    <p>{{selectedRoom.pricePerDay}}</p>
+    <div *ngIf="selectedRoom.amenities != []; else no_amenities">
+        <div *ngFor="let amenity of selectedRoom.amenities">
+            <h3>{{amenity.title}}</h3>
+            <p>{{amenity.content}}</p>
+        </div>
+    </div>
+    <ng-template #no_amenities>No Amenities</ng-template>
+    <form #amenityForm="ngForm" (ngSubmit)="addAmenity(amenityForm)">
+        <h2>Add Amenity</h2>
+        <input type="text" name="title" id="title" placeholder="Title" ngModel>
+        <input type="text" name="content" id="content" placeholder="Brief Description" ngModel>
+        <input type="submit" value="Add Amenity">
+    </form>
+</div>
+<div>
+    <div *ngFor="let room of rooms">
+        <p>{{room.name}}</p>
+        <p>{{room.capacity}}</p>
+        <p>{{room.pricePerDay}}</p>
+        <button (click)="viewDetails(room.id)">View Details</button>
+    </div>
+</div>
