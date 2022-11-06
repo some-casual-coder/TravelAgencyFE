@@ -97,12 +97,7 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": [
-<<<<<<< HEAD
-=======
-             
->>>>>>> e106330f283ff02d0ba04a6aab7ccd537f5e0e27
-            ]
+            "scripts": []
           }
         }
       }

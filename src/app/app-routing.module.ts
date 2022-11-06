@@ -12,6 +12,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { RegisterComponent } from './register/register.component';
 import { SuperAdminComponent } from './super-admin/super-admin.component';
 import { UserComponent } from './user/user.component';
+import { ViewUsersComponent } from './view-users/view-users.component';
 
 const routes: Routes = [
   {path:'home', component:HomeComponent},
@@ -23,6 +24,7 @@ const routes: Routes = [
   {path:'hotel/add', component:AddHotelComponent, canActivate:[AuthGuard], data:{roles:['ROLE_HOST', 'ROLE_ADMIN', 'ROLE_SUPER_ADMIN']}},
   {path:'register', component:RegisterComponent},
   {path:'user/verifyUser', component:ConfirmRegistrationComponent},
+  {path:'admin/users', component:ViewUsersComponent, canActivate:[AuthGuard], data:{roles:['ROLE_ADMIN','ROLE_SUPER_ADMIN']}},
   {path:'forbidden', component:ForbiddenComponent},
   {path: '', redirectTo:'/home', pathMatch:'full'},
   {path: '**', component:NotFoundComponent}

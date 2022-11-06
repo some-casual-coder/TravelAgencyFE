@@ -9,13 +9,14 @@
   margin:0; padding:0;
   box-sizing: border-box;
   text-transform: capitalize;
-  outline: none; border:none;
+  outline: none; 
+  border:none;
   text-decoration: none;
   transition: all .2s linear;
 }
 
 *::selection{
-  background:var(--brown);
+  background:#A08D76;
   color:#E0D8DE;
 }
 
@@ -50,17 +51,17 @@ section{
 .btn{
   display: inline-block;
   margin-top: 1rem;
-  background:var(--brown);
+  background:#A08D76;
   color:#E0D8DE;
   padding:.8rem 3rem;
-  border:.2rem solid var(--brown);
+  border:.2rem solid #A08D76;
   cursor: pointer;
   font-size: 1.7rem;
 }
 
 .btn:hover{
   background:#CFD2B2;
-  color:var(--brown);
+  color:#A08D76;
 }
 
 header{
@@ -82,7 +83,7 @@ header .logo{
 }
 
 header .logo span{
-  color:var(--brown);
+  color:#A08D76;
 }
 
 header .navbar a{
@@ -92,7 +93,7 @@ header .navbar a{
 }
 
 header .navbar a:hover{
-  color:var(--brown);
+  color:#A08D76;
 }
 
 header .icons i{
@@ -103,7 +104,7 @@ header .icons i{
 }
 
 header .icons i:hover{
-  color:var(--brown);
+  color:#A08D76;
 }
 
 header .search-bar-container{
@@ -139,7 +140,7 @@ header .search-bar-container label{
 }
 
 header .search-bar-container label:hover{
-  color:var(--brown);
+  color:#A08D76;
 }
 
 .login-form-container{
@@ -185,7 +186,7 @@ header .search-bar-container label:hover{
 }
 
 .login-form-container form .box:focus{
-  border-color: var(--brown);;
+  border-color: #A08D76;
 }
 
 .login-form-container form #remember{
@@ -208,7 +209,7 @@ header .search-bar-container label:hover{
 }
 
 .login-form-container form p a{
-  color:var(--brown);
+  color:#A08D76;
 }
 
 .login-form-container form p a:hover{
@@ -289,7 +290,7 @@ header .search-bar-container label:hover{
 }
 
 .home .controls .vid-btn.active{
-  background:var(--brown);
+  background:#A08D76;
 }
 
 .book .row{
@@ -362,7 +363,7 @@ header .search-bar-container label:hover{
 }
 
 .packages .box-container .box .content h3 i{
-  color:var(--brown);
+  color:#A08D76;
 }
 
 .packages .box-container .box .content p{
@@ -373,7 +374,7 @@ header .search-bar-container label:hover{
 
 .packages .box-container .box .content .stars i{
   font-size:1.7rem;
-  color:var(--brown);
+  color:#A08D76;
 }
 
 .packages .box-container .box .content .price{
@@ -404,7 +405,7 @@ header .search-bar-container label:hover{
 .services .box-container .box i{
   padding:1rem;
   font-size: 5rem;
-  color:var(--brown);
+  color:#A08D76;
 }
 
 .services .box-container .box h3{
@@ -461,7 +462,7 @@ header .search-bar-container label:hover{
 
 .gallery .box-container .box .content h3{
   font-size: 2.5rem;
-  color:var(--brown);
+  color:#A08D76;
 }
 
 .gallery .box-container .box .content p{
@@ -501,7 +502,7 @@ header .search-bar-container label:hover{
 }
 
 .review .box .stars i{
-  color:var(--brown);
+  color:#A08D76;
   font-size: 1.7rem;
 }
 
@@ -550,8 +551,13 @@ header .search-bar-container label:hover{
 }
 
 .brand-container{
+  width: 100%;
   text-align: center;
 }
+
+/* .brand-slider{
+  width: 100vw;
+} */
 
 .footer{
   background:#333;
@@ -588,7 +594,7 @@ header .search-bar-container label:hover{
 }
 
 .footer .box-container .box a:hover{
-  color:var(--brown);
+  color:#A08D76;
   text-decoration: underline;
 }
 
@@ -603,7 +609,7 @@ header .search-bar-container label:hover{
 }
 
 .footer .credit span{
-  color:var(--brown);
+  color:#A08D76;
 }
 
 

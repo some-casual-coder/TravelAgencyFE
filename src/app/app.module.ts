@@ -24,6 +24,7 @@ import { AddHotelComponent } from './add-hotel/add-hotel.component';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { ViewUsersComponent } from './view-users/view-users.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
     ViewUserComponent,
     AddHotelComponent,
     SidebarComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    ViewUsersComponent
   ],
   imports: [
     BrowserModule,

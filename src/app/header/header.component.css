@@ -1,3 +1,7 @@
+:root {
+  --brown: #A08D76;
+}
+
 header {
   position: fixed;
   top: 0;
@@ -19,7 +23,7 @@ header .logo {
 }
 
 header .logo span {
-  color: var(--brown);
+  color: #A08D76;
 }
 
 header .navbar a {
@@ -29,7 +33,7 @@ header .navbar a {
 }
 
 header .navbar a:hover {
-  color: var(--brown);
+  color: #A08D76;
 }
 
 header .icons i {
@@ -40,7 +44,7 @@ header .icons i {
 }
 
 header .icons i:hover {
-  color: var(--brown);
+  color: #A08D76;
 }
 
 header .search-bar-container {
@@ -78,7 +82,7 @@ header .search-bar-container label {
 }
 
 header .search-bar-container label:hover {
-  color: var(--brown);
+  color: #A08D76;
 }
 
 .login-form-container {
@@ -125,7 +129,7 @@ header .search-bar-container label:hover {
 }
 
 .login-form-container form .box:focus {
-  border-color: var(--brown);
+  border-color: #A08D76;
   ;
 }
 
@@ -149,7 +153,7 @@ header .search-bar-container label:hover {
 }
 
 .login-form-container form p a {
-  color: var(--brown);
+  color: #A08D76;
 }
 
 .login-form-container form p a:hover {
