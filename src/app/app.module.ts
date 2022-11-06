@@ -19,6 +19,8 @@ import { SuperAdminComponent } from './super-admin/super-admin.component';
 import { AuthGuard } from './auth/auth.guard';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { UserService } from 'services/user.service';
+import { UserViewHotelsComponent } from './user-view-hotels/user-view-hotels.component';
+import { UserViewHotelDetailsComponent } from './user-view-hotel-details/user-view-hotel-details.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { UserService } from 'services/user.service';
     RegisterComponent,
     ConfirmRegistrationComponent,
     HostComponent,
-    SuperAdminComponent
+    SuperAdminComponent,
+    UserViewHotelsComponent,
+    UserViewHotelDetailsComponent
   ],
   imports: [
     BrowserModule,
